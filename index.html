@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Library</title>
+</head>
+<body>
+  <nav>
+    <h1 class="heading">Library</h1>
+    <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 12px; margin-left: 8px;" width="50px" height="50px" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+</svg>
+    <button class="btnAddBook">Add Book</button>
+    <dialog>
+      <h1 class="dialog-header">Add a new book:</h1>
+      <form action="">
+        <div>
+          <label for="title">Title of the book:</label>
+          <input type="text" id="title" placeholder="Title" required>
+        </div>
+        <div>
+          <label for="author">Author:</label>
+          <input type="text" id="author" placeholder="Author" required>
+        </div>
+        <div>
+          <label for="number-of-pages">Number of pages:</label>
+          <input type="number" id="number-of-pages" placeholder="250" required>
+        </div>
+        <div class="form-checkbox">
+          <label for="read-or-not">Have you read the book?</label>
+          <input type="checkbox" id="read-or-not">
+        </div>
+        <button class="submit-btn" type="submit">Add your book!</button>
+      </form>
+    </dialog>
+  </nav>
+  <div class="book-holder">
+    <div class="book">
+      <div>Name: Dota 2</div>
+      <div>Author: Rubick</div>
+      <div>Number of pages: 250</div>
+      <div>You haven't read the book yet.</div>
+      <div class="btnHolder">
+        <button class="readBtn">Read</button>
+        <button class="removeBtn">Remove</button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    Library by Odin Project
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
