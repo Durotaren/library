@@ -172,14 +172,14 @@ input {
 
 .readBtn {
   border-radius: 6px;
-  width: 30%;
+  width: 33%;
   height: 30px;
   background-color: #388B54;
 }
 
 .notReadBtn {
   border-radius: 6px;
-  width: 30%;
+  width: 33%;
   height: 30px;
   background-color: rgb(167, 19, 19);
 }

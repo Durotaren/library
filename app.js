@@ -1,4 +1,4 @@
-const library = [];
+let library = [];
 const bookBtn = document.querySelector('.btnAddBook');
 const bookHolder = document.querySelector('.book-holder');
 const dialog = document.querySelector('dialog');
@@ -22,26 +22,36 @@ function addBookToLibrary(title, author, numOfPages, isread) {
 function createBookCard(book) {
   let holderDiv = document.createElement("div");
   holderDiv.classList.add("book");
-  // let isReadBtn = document.createElement('button');
-  // isReadBtn.textContent = isRead ? 'I haven\'t read it' : 'I have read it';
-  // isReadBtn.classList.add(isRead ? 'readBtn' : 'notReadBtn');
-  // isReadBtn.addEventListener('click', () => {
-  //   if (isRead) {
-  //     book.isRead.textContent = 'You haven\'t read the book';
-  //   } else {
-  //     book.isRead.textContent = 'You have read the book';
-  //   }
-  // })
+
+  let btnHolderDiv = document.createElement('div');
+  btnHolderDiv.classList.add('btnHolder');
   
-  // let removeBtn = document.createElement("button");
-  // removeBtn.textContent = "Remove this book.";
-  // removeBtn.classList.add("removeBtn");
-  // removeBtn.addEventListener("click", () => {
-  //   holderDiv.remove();
-  //   // Checking how to remove the right book
-  //   library.pop();
-  //   console.log(library);
-  // });
+  let removeBtn = document.createElement("button");
+  removeBtn.textContent = "Remove";
+  removeBtn.classList.add("removeBtn");
+  removeBtn.dataset.id = book.uniqueId;
+
+  let isReadBtn = document.createElement("button");
+  isReadBtn.textContent = book.isRead ? "I haven't read it" : "I have read it";
+  isReadBtn.classList.add(book.isRead ? "notReadBtn" : "readBtn");
+  isReadBtn.addEventListener("click", () => {
+    book.isRead = !book.isRead;
+
+    isReadBtn.textContent = book.isRead ? 'I haven\'t read it' : 'I have read it';
+    let statusDiv = document.querySelector('.read-status');
+    statusDiv.textContent = book.isRead ? 'You have read the book' : 'You haven\'t read the book';
+
+    isReadBtn.classList.remove(book.isRead ? 'readBtn' : 'notReadBtn');
+    isReadBtn.classList.add(book.isRead ? 'notReadBtn' : 'readBtn');
+  });
+  
+  removeBtn.addEventListener("click", () => {
+    if (removeBtn.dataset.id === book.uniqueId) {
+      holderDiv.remove();
+      library = library.filter(bookObj => bookObj.uniqueId !== removeBtn.dataset.id)
+    }
+    console.log(library);
+  });
 
   for(let key in book) {
     if (key === 'uniqueId') continue;
@@ -64,6 +74,7 @@ function createBookCard(book) {
         break;
 
       case 'isRead':
+        div.classList.add('read-status');
         div.textContent = book[key]
           ? "You have read the book."
           : "You haven't read the book yet.";
@@ -74,8 +85,9 @@ function createBookCard(book) {
     }
     holderDiv.append(div);
   }
-  //  
-  // holderDiv.append(removeBtn);
+  btnHolderDiv.append(isReadBtn);  
+  btnHolderDiv.append(removeBtn);
+  holderDiv.append(btnHolderDiv);
   bookHolder.append(holderDiv);
   // A log to check library, to be removed later
   console.log(library);
