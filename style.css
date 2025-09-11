@@ -25,7 +25,7 @@ input {
 }
 
 button {
-  background-color: #388B54;
+  background-color: #388b54;
 }
 
 body {
@@ -40,7 +40,7 @@ nav {
 }
 
 .heading {
-  font-weight: 600; 
+  font-weight: 600;
   font-size: 2.4rem;
   padding-left: 250px;
   align-self: center;
@@ -59,6 +59,7 @@ footer {
   text-align: center;
   font-size: 1.5rem;
   padding: 16px;
+  margin-top: 32px;
 }
 
 .book-holder {
@@ -79,7 +80,7 @@ footer {
   border: 1px solid #595a5a;
   width: 400px;
   height: 200px;
-  border-radius: 10px;  
+  border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -174,7 +175,7 @@ input {
   border-radius: 6px;
   width: 33%;
   height: 30px;
-  background-color: #388B54;
+  background-color: #388b54;
 }
 
 .notReadBtn {
