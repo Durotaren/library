@@ -4,12 +4,14 @@ const bookHolder = document.querySelector('.book-holder');
 const dialog = document.querySelector('dialog');
 const form = document.querySelector('form');
 
-function Book(title, author, numOfPages, isRead = false, uniqueId) {
-  this.title = title;
-  this.author = author;
-  this.numOfPages = numOfPages;
-  this.isRead = isRead;
-  this.uniqueId = uniqueId;
+class Book {
+  constructor(title, author, numOfPages, isRead = false, uniqueId) {
+    this.title = title;
+    this.author = author;
+    this.numOfPages = numOfPages;
+    this.isRead = isRead;
+    this.uniqueId = uniqueId;
+  }
 }
 
 function addBookToLibrary(title, author, numOfPages, isread) {
@@ -95,8 +97,6 @@ function createBookCard(book) {
   btnHolderDiv.append(removeBtn);
   holderDiv.append(btnHolderDiv);
   bookHolder.append(holderDiv);
-  // A log to check library, to be removed later
-  console.log(library);
 }
 
 bookBtn.addEventListener('click', () => dialog.showModal());
