@@ -4,6 +4,35 @@ const bookHolder = document.querySelector('.book-holder');
 const dialog = document.querySelector('dialog');
 const form = document.querySelector('form');
 
+let title = document.getElementById('title');
+title.addEventListener('input', () => {
+  if (title.validity.valueMissing) {
+    title.setCustomValidity('Please fill out the name of your book.');
+  } else {
+    title.setCustomValidity('');
+  }
+});
+
+let author = document.getElementById('author');
+author.addEventListener('input', () => {
+  if (author.validity.valueMissing) {
+    author.setCustomValidity('Please fill out the author of your book.');
+  } else {
+    author.setCustomValidity('');
+  }
+});
+
+let numOfPages = document.getElementById('number-of-pages');
+numOfPages.addEventListener('input', () => {
+  if (numOfPages.validity.valueMissing) {
+    numOfPages.setCustomValidity(
+      'Please fill out the number of pages of your book.'
+    );
+  } else {
+    numOfPages.setCustomValidity('');
+  }
+});
+
 class Book {
   constructor(title, author, numOfPages, isRead = false, uniqueId) {
     this.title = title;
