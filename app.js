@@ -7,7 +7,7 @@ const form = document.querySelector('form');
 let title = document.getElementById('title');
 title.addEventListener('input', () => {
   if (title.validity.valueMissing) {
-    title.setCustomValidity('Please fill out the name of your book.');
+    title.setCustomValidity('Please fill out the title of your book.');
   } else {
     title.setCustomValidity('');
   }
